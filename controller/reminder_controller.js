@@ -29,7 +29,7 @@ let remindersController = {
       completed: false,
     };
     database.cindy.reminders.push(reminder);
-    res.redirect("/reminders"); 
+    res.redirect("/reminder"); 
   },
 
   edit: (req, res) => {
@@ -47,7 +47,7 @@ let remindersController = {
     let updateReminderField = {id:+remidnerToUpdate , title:reminderBody.title , description:reminderBody.description , completed:reminderBody.completed == 'true'};
     let elementIndex = database.cindy.reminders.findIndex(element => element.id === +remidnerToUpdate)
     database.cindy.reminders[elementIndex] = updateReminderField;    
-    res.redirect("/reminders");
+    res.redirect("/reminder");
   },
 
   delete: (req, res) => {
@@ -57,7 +57,7 @@ let remindersController = {
       return element.id != reminderToDelete;
     })
     database.cindy.reminders = fileteredReminders;
-    res.redirect('/reminders');
+    res.redirect('/reminder');
   },
 };
 

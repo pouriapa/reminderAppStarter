@@ -2,21 +2,21 @@ const express = require('express');
 const router = express.Router();
 const reminderController = require('../controller/reminder_controller');
 
-router.get("/reminders", reminderController.list);
+router.get("/", reminderController.list);
 
-router.get("/reminder/new", reminderController.new);
+router.get("/new", reminderController.new);
 
-router.get("/reminder/:id", reminderController.listOne);
+router.get("/:id", reminderController.listOne);
 
-router.get("/reminder/:id/edit", reminderController.edit);
+router.get("/:id/edit", reminderController.edit);
 
-router.post("/reminder/", reminderController.create);
-
-// Implement this yourself
-router.post("/reminder/update/:id", reminderController.update);
+router.post("/", reminderController.create);
 
 // Implement this yourself
-router.post("/reminder/delete/:id", reminderController.delete);
+router.post("/update/:id", reminderController.update);
+
+// Implement this yourself
+router.post("/delete/:id", reminderController.delete);
 
 
 module.exports = router;

@@ -3,8 +3,8 @@ const app = express();
 const path = require("path");
 const ejsLayouts = require("express-ejs-layouts");
 const { addAbortSignal } = require("stream");
-const reminderRouter = require('./routers/reminder');
-const authenticateRouter = require('./routers/authenticate');
+const reminderRout = require('./routers/reminder');
+const authRout = require('./routers/authenticate');
 
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -15,12 +15,9 @@ app.use(ejsLayouts);
 
 app.set("view engine", "ejs");
 
-app.use(reminderRouter);
+app.use('/reminder',reminderRout);
 
-app.use(authenticateRouter);
-
-
-
+app.use(authRout);
 
 
 
