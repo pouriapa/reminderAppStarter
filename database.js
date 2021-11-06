@@ -1,6 +1,6 @@
 let Database = {
     cindy: {
-        reminders: [{id: 1, title: "first reminder", description: "first description for Cindy", completed: false}]
+        reminders: [{id: Math.floor(Math.random() * 100), title: "first reminder", description: "first description for Cindy", completed: false}]
     },
     alex: {
         reminders: []

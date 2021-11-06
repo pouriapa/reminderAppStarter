@@ -23,7 +23,7 @@ let remindersController = {
 
   create: (req, res) => {
     let reminder = {
-      id: database.cindy.reminders.length + 1,
+      id: Math.floor(Math.random() * 100),
       title: req.body.title,
       description: req.body.description,
       completed: false,
@@ -44,9 +44,13 @@ let remindersController = {
     
     let remidnerToUpdate = req.params.id;
     let reminderBody = req.body;
-    console.log(reminderBody);
-    let updateReminderField = {id:remidnerToUpdate , title:reminderBody.title , description:reminderBody.description , completed:reminderBody.completed == 'true'};
-    database.cindy.reminders[remidnerToUpdate-1] = updateReminderField;
+    
+    let updateReminderField = {id:+remidnerToUpdate , title:reminderBody.title , description:reminderBody.description , completed:reminderBody.completed == 'true'};
+    let elementIndex = database.cindy.reminders.findIndex(element => element.id === +remidnerToUpdate)
+    console.log(elementIndex)
+    database.cindy.reminders[elementIndex] = updateReminderField;
+    
+    console.log(database.cindy.reminders);
     res.redirect("/reminders");
   },
 
