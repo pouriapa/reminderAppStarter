@@ -3,8 +3,8 @@ const app = express();
 const path = require("path");
 const ejsLayouts = require("express-ejs-layouts");
 const { addAbortSignal } = require("stream");
-const reminderRout = require('./routers/reminder');
-const authRout = require('./routers/authenticate');
+const reminderRout = require('./routes/reminder');
+const authRout = require('./routes/authenticate');
 
 
 app.use(express.static(path.join(__dirname, "public")));
